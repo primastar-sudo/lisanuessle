@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisa Nuessle — Fractional Startup Operator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #ffffff;
+    --black: #0a0a0a;
+    --gray-50: #fafafa;
+    --gray-100: #f4f4f5;
+    --gray-200: #e4e4e7;
+    --gray-400: #a1a1aa;
+    --gray-600: #52525b;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--black);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 16px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--white); color: var(--black); }
+
+  /* HERO */
+  .hero {
+    padding: 6rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-name {
+    font-size: clamp(52px, 7.5vw, 82px);
+    font-weight: 900;
+    line-height: 0.93;
+    letter-spacing: -3px;
+    color: var(--black);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-statement {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--gray-600);
+    margin-bottom: 1rem;
+    max-width: 520px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-400);
+    margin-bottom: 1.75rem;
+    max-width: 520px;
+  }
+
+  .hero-contact { display: flex; flex-direction: column; gap: 8px; }
+
+  .hero-contact a {
+    font-size: 13px;
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .hero-contact a:hover { color: var(--black); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--black);
+    border: 1px solid var(--black);
+    align-self: start;
+    margin-top: 2rem;
+  }
+
+  .stat { background: var(--black); padding: 1.5rem; text-align: center; }
+
+  .stat-val {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
+  }
+
+  .stat-lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.4;
+    margin-top: 4px;
+    display: block;
+    letter-spacing: 0.2px;
+  }
+
+  /* SECTIONS */
+  section { border-top: 1px solid var(--gray-200); padding: 4rem 0; }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--black);
+    padding-top: 4px;
+  }
+
+  /* PILLARS */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--black);
+    border: 1px solid var(--black);
+  }
+
+  .pillar { background: var(--white); padding: 2rem; transition: background 0.15s; }
+  .pillar:hover { background: var(--gray-50); }
+
+  .pillar-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--gray-400);
+    margin-bottom: 10px;
+  }
+
+  .pillar-title { font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 14px; line-height: 1.2; }
+
+  .pillar-list { list-style: none; padding: 0; }
+
+  .pillar-list li {
+    font-size: 12.5px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .pillar-list li::before { content: '–'; position: absolute; left: 0; color: var(--gray-400); }
+
+  /* CAREER CHART */
+  .prog-wrap { width: 100%; overflow-x: auto; }
+  .prog-legend { display: flex; gap: 2rem; margin-bottom: 1.25rem; align-items: center; }
+  .prog-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--gray-600); }
+
+  /* CAREER */
+  .career-block { margin-bottom: 2.5rem; }
+  .career-block:last-child { margin-bottom: 0; }
+
+  .career-company { font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 2px; }
+
+  .career-meta { font-size: 12px; color: var(--gray-400); margin-bottom: 1rem; }
+
+  .career-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+
+  .career-list li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .career-list li::before { content: '→'; position: absolute; left: 0; color: var(--black); font-size: 11px; top: 3px; }
+
+  .career-divider { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
+
+  /* SERVICES */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--black);
+    border: 1px solid var(--black);
+  }
+
+  .service { background: var(--white); padding: 1.75rem; transition: background 0.15s; }
+  .service:hover { background: var(--gray-50); }
+
+  .service-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 10px; line-height: 1.3; }
+  .service-desc { font-size: 12.5px; color: var(--gray-600); line-height: 1.65; }
+
+  /* MEDIA */
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--black);
+    border: 1px solid var(--black);
+  }
+
+  .media-card { background: var(--white); padding: 1.5rem; transition: background 0.15s; }
+  .media-card:hover { background: var(--gray-50); }
+
+  .media-type {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 7px;
+  }
+
+  .media-title { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 5px; line-height: 1.35; }
+  .media-detail { font-size: 11.5px; color: var(--gray-400); line-height: 1.5; }
+
+  .media-title-link { text-decoration: none; }
+  .media-title-link .media-title { color: var(--black); transition: opacity 0.2s; }
+  .media-title-link:hover .media-title { opacity: 0.45; }
+
+  /* BACKGROUND SECTION */
+  .dual-headline { font-size: 28px; font-weight: 800; color: var(--black); line-height: 1.1; margin: 0 0 .875rem; letter-spacing: -0.5px; }
+  .dual-sub { font-size: 14px; color: var(--gray-600); line-height: 1.75; max-width: 580px; margin: 0; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--black);
+    padding: 5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta-inner {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-headline {
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    max-width: 460px;
+    letter-spacing: -1px;
+    margin: 0;
+  }
+
+  .cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+
+  footer { border-top: 1px solid var(--gray-200); padding: 1.5rem 2rem; text-align: center; }
+  footer p { font-size: 12px; color: var(--gray-400); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+  .hero-name { animation: fadeUp 0.5s ease 0.08s both; }
+  .hero-statement { animation: fadeUp 0.5s ease 0.16s both; }
+  .hero-contact { animation: fadeUp 0.5s ease 0.24s both; }
+  .hero-stats { animation: fadeUp 0.5s ease 0.12s both; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-header { grid-template-columns: 1fr; gap: 1rem; }
+    .pillars, .services, .media-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Lisa Nuessle</span>
+    <ul class="nav-links">
+      <li><a href="#dualtrack">Background</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#media">Media</a></li>
+    </ul>
+    <a href="mailto:lisa.nuessle@gmail.com" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <h1 class="hero-name">Lisa<br>Nuessle</h1>
+    <p class="hero-statement">Fortune 500 rigor. Startup speed. One operator.</p>
+    <p class="hero-sub">From C-suite relationships and $10M+ enterprise accounts at Cognizant to building and overseeing Ironhack's entire US business from scratch — I bring corporate credibility and startup execution to every role.</p>
+    <div class="hero-contact">
+      <a href="mailto:lisa.nuessle@gmail.com">lisa.nuessle@gmail.com</a>
+      <a href="tel:7167836182">(716) 783-6182</a>
+      <a href="https://linkedin.com/in/lisanuessle" target="_blank">linkedin.com/in/lisanuessle</a>
+    </div>
+  </div>
+  <div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-val">$2.5M</span>
+        <span class="stat-lbl">Annual P&L owned</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">81%</span>
+        <span class="stat-lbl">Lead growth in 12 months</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">$1.8M+</span>
+        <span class="stat-lbl">Enterprise revenue generated</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">90%+</span>
+        <span class="stat-lbl">NPS across all programs</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="dualtrack">
+  <div class="section-header">
+    <p class="section-label">Background</p>
+    <div>
+      <h2 class="dual-headline">Corporate credibility.<br>Startup execution.</h2>
+      <p class="dual-sub" style="margin-top:.875rem">I bring a unique perspective to companies because I've operated across strategy and execution in many roles — not just one. My startup background has taught me to operate with extreme ownership and rapid execution, leveraging AI and automating tasks with the latest technologies to move faster and smarter.</p>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="section-header">
+    <p class="section-label">Four-Pillar Expertise</p>
+    <div>
+      <div class="pillars">
+        <div class="pillar">
+          <p class="pillar-num">01</p>
+          <h2 class="pillar-title">Strategy & Market Development</h2>
+          <ul class="pillar-list">
+            <li>Organizational leadership and cross-functional team alignment</li>
+            <li>Executive stakeholder management and C-suite advisory</li>
+            <li>New business line development — from strategic vision to first revenue</li>
+            <li>Go-to-market strategy design and launch execution</li>
+            <li>Strategic partnership development across enterprise, government, and community sectors</li>
+            <li>Financial modeling, budgeting, and P&L oversight</li>
+            <li>Board-level reporting and business performance management</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <p class="pillar-num">02</p>
+          <h2 class="pillar-title">Sales, Account Management & Delivery</h2>
+          <ul class="pillar-list">
+            <li>End-to-end enterprise sales cycle management</li>
+            <li>C-suite and VP-level relationship management and consultative selling</li>
+            <li>Account planning, forecasting, and renewal strategy</li>
+            <li>Client onboarding and delivery excellence</li>
+            <li>RFP leadership, contract negotiation, and MSA execution</li>
+            <li>Multi-stakeholder deal coordination across complex organizations</li>
+            <li>Pipeline management and CRM hygiene</li>
+            <li>80% renewal rate and 90%+ NPS across all managed accounts</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <p class="pillar-num">03</p>
+          <h2 class="pillar-title">Growth & Customer Experience</h2>
+          <ul class="pillar-list">
+            <li>Multi-channel customer acquisition across organic, paid, events, and content</li>
+            <li>Funnel design and conversion rate optimization</li>
+            <li>Customer journey mapping and friction identification</li>
+            <li>Onboarding design and optimization</li>
+            <li>NPS program design and retention strategy</li>
+            <li>Email, SMS, and social media marketing</li>
+            <li>Brand strategy and PR</li>
+            <li>LTV maximization programs</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <p class="pillar-num">04</p>
+          <h2 class="pillar-title">Data, Automation & AI Infrastructure</h2>
+          <ul class="pillar-list">
+            <li>CRM installation, setup, and optimization (Salesforce, HubSpot, Pipedrive, Apollo)</li>
+            <li>Workflow automation using Zapier, Make, and native integrations</li>
+            <li>AI implementation using Claude, ChatGPT, and the latest frontier models</li>
+            <li>Prompt engineering and AI workflow design for business operations</li>
+            <li>Marketing and sales automation builds</li>
+            <li>API integrations connecting disparate tools into unified systems</li>
+            <li>Custom dashboards, KPI frameworks, and lead scoring models</li>
+            <li>Continuous adoption of emerging AI tools and capabilities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="progression">
+  <div class="section-header">
+    <p class="section-label">Career Path</p>
+    <div>
+      <div class="prog-legend">
+        <div class="prog-legend-item">
+          <svg width="12" height="12" viewBox="0 0 12 12" style="flex-shrink:0"><circle cx="6" cy="6" r="5" fill="#0a0a0a"/></svg>
+          Promotion
+        </div>
+        <div class="prog-legend-item">
+          <svg width="12" height="12" viewBox="0 0 12 12" style="flex-shrink:0"><circle cx="6" cy="6" r="4" fill="#ffffff" stroke="#0a0a0a" stroke-width="2"/></svg>
+          Strategic Pivot
+        </div>
+      </div>
+      <div class="prog-wrap">
+        <svg viewBox="0 0 900 268" xmlns="http://www.w3.org/2000/svg" style="font-family:'Inter',system-ui,sans-serif;display:block;width:100%;">
+          <defs>
+            <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0a0a0a" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Company backgrounds -->
+          <rect x="80" y="18" width="331" height="204" fill="#f4f4f5"/>
+          <rect x="411" y="18" width="399" height="204" fill="#ebebeb"/>
+          <rect x="810" y="18" width="82" height="204" fill="#f4f4f5"/>
+
+          <!-- Company labels -->
+          <text x="245" y="12" text-anchor="middle" font-size="8" font-weight="600" fill="#a1a1aa" letter-spacing="1.5">COGNIZANT  ·  2013 – 2018</text>
+          <text x="605" y="12" text-anchor="middle" font-size="8" font-weight="600" fill="#0a0a0a" letter-spacing="1.5">IRONHACK  ·  2018 – 2024</text>
+          <text x="851" y="12" text-anchor="middle" font-size="7" font-weight="600" fill="#a1a1aa" letter-spacing="1">INDEPENDENT · 2025</text>
+
+          <!-- Dividers -->
+          <line x1="411" y1="18" x2="411" y2="222" stroke="#0a0a0a" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="810" y1="18" x2="810" y2="222" stroke="#0a0a0a" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Grid lines -->
+          <line x1="80" y1="35" x2="810" y2="35" stroke="#0a0a0a" stroke-opacity="0.07" stroke-width="1"/>
+          <line x1="80" y1="78" x2="810" y2="78" stroke="#0a0a0a" stroke-opacity="0.07" stroke-width="1"/>
+          <line x1="80" y1="120" x2="810" y2="120" stroke="#0a0a0a" stroke-opacity="0.07" stroke-width="1"/>
+          <line x1="80" y1="163" x2="810" y2="163" stroke="#0a0a0a" stroke-opacity="0.07" stroke-width="1"/>
+
+          <!-- Y-axis labels -->
+          <text x="76" y="39" text-anchor="end" font-size="7" fill="#a1a1aa" font-weight="500">LEADING</text>
+          <text x="76" y="82" text-anchor="end" font-size="7" fill="#a1a1aa" font-weight="500">BUILDING</text>
+          <text x="76" y="124" text-anchor="end" font-size="7" fill="#a1a1aa" font-weight="500">OWNING</text>
+          <text x="76" y="167" text-anchor="end" font-size="7" fill="#a1a1aa" font-weight="500">MANAGING</text>
+          <text x="76" y="209" text-anchor="end" font-size="7" fill="#a1a1aa" font-weight="500">EXECUTING</text>
+
+          <!-- Area fill -->
+          <path d="M 80 205 C 122 205 162 168 204 168 C 246 168 278 128 316 128 C 354 128 382 108 411 108 C 450 108 490 93 529 93 C 532 93 536 66 541 66 C 570 66 602 46 636 46 C 643 46 651 28 664 28 L 810 28 C 825 28 838 22 851 22 L 892 22 L 892 222 Z" fill="url(#ag)"/>
+
+          <!-- Career path -->
+          <path d="M 80 205 C 122 205 162 168 204 168 C 246 168 278 128 316 128 C 354 128 382 108 411 108 C 450 108 490 93 529 93 C 532 93 536 66 541 66 C 570 66 602 46 636 46 C 643 46 651 28 664 28 L 810 28 C 825 28 838 22 851 22 L 892 22" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- X-axis -->
+          <line x1="80" y1="222" x2="810" y2="222" stroke="#a1a1aa" stroke-opacity="0.3" stroke-width="1"/>
+
+          <!-- Node 1: Tech Solutions Analyst -->
+          <circle cx="80" cy="205" r="5" fill="#0a0a0a"/>
+          <text x="80" y="234" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Tech Solutions Analyst</text>
+          <text x="80" y="245" text-anchor="middle" font-size="6.5" fill="#a1a1aa">Sep 2013</text>
+
+          <!-- Node 2: Account Manager — PROMOTION -->
+          <circle cx="204" cy="168" r="6" fill="#0a0a0a"/>
+          <text x="213" y="159" font-size="9" fill="#0a0a0a" font-weight="700">↑</text>
+          <text x="204" y="150" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Account Manager</text>
+          <text x="204" y="140" text-anchor="middle" font-size="6.5" fill="#a1a1aa">Jul 2015</text>
+
+          <!-- Node 3: Sr. Account Executive — PROMOTION -->
+          <circle cx="316" cy="128" r="6" fill="#0a0a0a"/>
+          <text x="325" y="119" font-size="9" fill="#0a0a0a" font-weight="700">↑</text>
+          <text x="316" y="110" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Sr. Account Executive</text>
+          <text x="316" y="100" text-anchor="middle" font-size="6.5" fill="#a1a1aa">Mar 2017</text>
+
+          <!-- Node 4: Growth Manager — PIVOT -->
+          <circle cx="411" cy="108" r="7" fill="#ffffff" stroke="#0a0a0a" stroke-width="2.5"/>
+          <text x="420" y="99" font-size="9" fill="#0a0a0a" font-weight="700">→</text>
+          <text x="411" y="89" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Growth Manager</text>
+          <text x="411" y="79" text-anchor="middle" font-size="6.5" fill="#a1a1aa">Aug 2018 · Ironhack</text>
+
+          <!-- Node 5: Campus Lead — brief -->
+          <circle cx="529" cy="93" r="3.5" fill="#0a0a0a" opacity="0.3"/>
+
+          <!-- Node 6: General Manager — PROMOTION -->
+          <circle cx="541" cy="66" r="7" fill="#0a0a0a"/>
+          <text x="550" y="57" font-size="9" fill="#0a0a0a" font-weight="700">↑</text>
+          <text x="556" y="81" text-anchor="start" font-size="7.5" font-weight="600" fill="#52525b">General Manager</text>
+          <text x="556" y="92" text-anchor="start" font-size="6.5" fill="#a1a1aa">Jul 2020</text>
+
+          <!-- Node 7: Sr. Growth Lead — PROMOTION -->
+          <circle cx="636" cy="46" r="6" fill="#0a0a0a"/>
+          <text x="645" y="37" font-size="9" fill="#0a0a0a" font-weight="700">↑</text>
+          <text x="636" y="63" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Sr. Growth Lead – US</text>
+          <text x="636" y="74" text-anchor="middle" font-size="6.5" fill="#a1a1aa">Dec 2021</text>
+
+          <!-- Node 8: Head of Enterprise — PROMOTION -->
+          <circle cx="664" cy="28" r="7" fill="#0a0a0a"/>
+          <text x="673" y="19" font-size="9" fill="#0a0a0a" font-weight="700">↑</text>
+          <text x="724" y="46" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Head of Enterprise – US</text>
+          <text x="724" y="57" text-anchor="middle" font-size="6.5" fill="#a1a1aa">May 2022 – Jul 2024</text>
+
+          <!-- Node 9: Fractional Startup Operator (851,22) — new chapter -->
+          <circle cx="851" cy="22" r="7" fill="#0a0a0a"/>
+          <text x="860" y="13" font-size="9" fill="#0a0a0a" font-weight="700">↑</text>
+          <text x="851" y="42" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Fractional Startup</text>
+          <text x="851" y="53" text-anchor="middle" font-size="7.5" font-weight="600" fill="#52525b">Operator</text>
+          <text x="851" y="64" text-anchor="middle" font-size="6.5" fill="#a1a1aa">Jan 2025 – Present</text>
+
+          <text x="892" y="258" text-anchor="end" font-size="6.5" fill="#a1a1aa" font-style="italic">Y-axis = scope of ownership, not title seniority</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="section-header">
+    <p class="section-label">Career</p>
+    <div>
+      <div class="career-block">
+        <h2 class="career-company">Ironhack</h2>
+        <p class="career-meta">Head of Enterprise Sales – US &nbsp;|&nbsp; May 2022 – Jul 2024 · New York, NY</p>
+        <ul class="career-list">
+          <li>Pioneered and built Ironhack's B2B Enterprise division from the ground up — a net-new business line with no prior infrastructure</li>
+          <li>Designed go-to-market strategy and secured strategic partnerships with VP and C-level executives across banking, FAANG, sports, and government sectors</li>
+          <li>Generated $1.8M+ in new enterprise revenue; broke into the Puerto Rico market and secured $750K in revenue within 12 months</li>
+          <li>Led multi-department pursuit teams across sales, operations, marketing, and technical functions to deliver client launches with 90%+ NPS satisfaction</li>
+          <li>Owned budgeting, deal forecasting, and executive/board-level reporting for the US enterprise portfolio</li>
+          <li>Served as primary relationship owner for all US enterprise accounts, maintaining an 80% renewal rate through consultative account management</li>
+          <li>Oversaw delivery and execution of workforce transformation programs, ensuring client commitments were met on time and to specification</li>
+          <li>Implemented and optimized full sales tech stack including Salesforce, Apollo, and LinkedIn Sales Navigator</li>
+        </ul>
+      </div>
+      <hr class="career-divider">
+      <div class="career-block">
+        <h2 class="career-company">Ironhack</h2>
+        <p class="career-meta">US Senior Growth Lead &nbsp;|&nbsp; Dec 2021 – May 2022 · New York, NY</p>
+        <ul class="career-list">
+          <li>Developed and executed customer acquisition strategies to drive sustainable growth and launch new technical programs across multiple US cities</li>
+          <li>Implemented marketing automation and lead nurturing infrastructure to support national scale growth</li>
+          <li>Designed multi-channel acquisition campaigns across organic, paid, event, and content channels</li>
+        </ul>
+      </div>
+      <hr class="career-divider">
+      <div class="career-block">
+        <h2 class="career-company">Ironhack</h2>
+        <p class="career-meta">General Manager &nbsp;|&nbsp; Aug 2017 – Dec 2021 · Miami, FL</p>
+        <ul class="career-list">
+          <li>Owned full P&L ($2.5M annually) for Ironhack's US Consumer business, achieving sustained campus profitability</li>
+          <li>Led cross-functional team of 30 across marketing, sales, admissions, operations, instruction, and student success</li>
+          <li>Delivered 90%+ NPS consistently across all programs</li>
+          <li>Drove 81% increase in qualified leads through targeted experiential marketing over 12 months</li>
+          <li>Secured strategic partnerships with Meta, Uber, OfferUp, and Adobe to fund scholarships for women and diverse candidates</li>
+          <li>Managed annual regulatory license renewal with the Commission of Independent Education</li>
+          <li>Built and implemented full marketing, CRM, and operations tech stack from the ground up</li>
+        </ul>
+      </div>
+      <hr class="career-divider">
+      <div class="career-block">
+        <h2 class="career-company">Cognizant</h2>
+        <p class="career-meta">Senior Account Executive & Account Manager &nbsp;|&nbsp; Sep 2013 – Jul 2018 · New York, NY</p>
+        <ul class="career-list">
+          <li>Drove new business development within Banking and Financial Services; managed a top FS client site representing $10M+ in annual revenue</li>
+          <li>Consulted directly with C-suite executives to understand business challenges and propose strategic, tailored solutions — building trusted-advisor relationships central to complex enterprise sales</li>
+          <li>Led cross-functional pursuit teams developing winning RFP responses and client-facing presentations for competitive financial services deals</li>
+          <li>Partnered with legal teams to negotiate and close complex Master Service Agreements</li>
+          <li>Managed delivery teams and served as primary point of contact for the vendor management team, overseeing day-to-day execution at the client site</li>
+          <li>Led Quarterly Business Reviews (QBRs) with executive stakeholders to showcase delivery success, surface new opportunities, and expand account scope</li>
+          <li>Represented Cognizant at exclusive FS industry events to build brand awareness and generate new business within the sector</li>
+          <li>2014 Associate of the Year</li>
+        </ul>
+      </div>
+      <hr class="career-divider">
+      <div class="career-block">
+        <h2 class="career-company">Education</h2>
+        <p class="career-meta">Syracuse University &nbsp;|&nbsp; BS, Information Technology & Management · 2013</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="media">
+  <div class="section-header">
+    <p class="section-label">Media & Accolades</p>
+    <div>
+      <div class="media-grid">
+        <div class="media-card">
+          <p class="media-type">Speaking · eMerge Americas 2023</p>
+          <a href="https://www.youtube.com/watch?v=TgN8hocYs5E" target="_blank" class="media-title-link">
+            <p class="media-title">Embracing Uncertainty: Entrepreneurial Strategies for Scaling Success ↗</p>
+          </a>
+          <p class="media-detail">Moderator alongside Ironhack co-founder & co-CEO Ariel Quinones</p>
+        </div>
+        <div class="media-card">
+          <p class="media-type">Press · South Florida Business Journal</p>
+          <a href="https://www.bizjournals.com/southflorida/news/2021/10/07/miami-women-in-tech-to-know.html" target="_blank" class="media-title-link">
+            <p class="media-title">Miami Women in Tech to Know ↗</p>
+          </a>
+          <p class="media-detail">October 2021</p>
+        </div>
+        <div class="media-card">
+          <p class="media-type">Speaking · Field to the Boardroom</p>
+          <a href="https://www.youtube.com/watch?v=vDy05uH_UiQ&t=12s" target="_blank" class="media-title-link">
+            <p class="media-title">Women in Leadership and the Role of Technology in Sports ↗</p>
+          </a>
+          <p class="media-detail">Main stage panelist alongside Miami Marlins President Caroline O'Connor</p>
+        </div>
+        <div class="media-card">
+          <p class="media-type">Speaking & Press · Refresh Miami</p>
+          <a href="https://refreshmiami.com/event/journey-of-a-career-dreamer-fireside-chat-with-carlos-arevalo/" target="_blank" class="media-title-link">
+            <p class="media-title">Journey of a Career Dreamer ↗</p>
+          </a>
+          <p class="media-detail">Fireside chat host & published contributor</p>
+        </div>
+        <div class="media-card">
+          <p class="media-type">Award · 2019</p>
+          <p class="media-title">Ironhacker of the Year</p>
+          <p class="media-detail">Awarded by Ironhack in recognition of outstanding leadership and impact across the US campus</p>
+        </div>
+        <div class="media-card">
+          <p class="media-type">Award · 2017</p>
+          <p class="media-title">Women's Bond Club Rising Star</p>
+          <p class="media-detail">Banking & Financial Services Rising Star — one of the most prestigious recognitions in the industry</p>
+        </div>
+        <div class="media-card">
+          <p class="media-type">Award · 2014</p>
+          <p class="media-title">Cognizant Associate of the Year</p>
+          <p class="media-detail">Recognized across the full Cognizant organization for outstanding client impact and performance</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-headline">Ready to build something that actually scales?</h2>
+    <div class="cta-actions">
+      <a href="mailto:lisa.nuessle@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="https://linkedin.com/in/lisanuessle" target="_blank" class="btn-secondary">View LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Lisa Nuessle · Buffalo, NY · lisa.nuessle@gmail.com · (716) 783-6182</p>
+</footer>
+
+</body>
+</html>
